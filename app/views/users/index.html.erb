@@ -1,0 +1,6 @@
+<h1>List of Users</h1>
+<% @users.each do |user| %>
+	<div>
+		<label>User #<%= user.id %>: <%=user.first_name %> <%=user.last_name %></label>
+	</div>
+<% end %>
