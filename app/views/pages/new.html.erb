@@ -1,0 +1,6 @@
+<%= form_for @page, url: book_pages_path(@book.id) do |f| %>
+	<%= f.text_field :chapter %>
+	<%= f.number_field :number %>
+	<%= f.number_field :book_id %>
+	<%= f.submit "Create" %>
+<% end %>
