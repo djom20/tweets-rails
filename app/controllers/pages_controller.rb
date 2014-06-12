@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
 	def index
+		create_params
 		render :show
 	end
 
@@ -10,8 +11,7 @@ class PagesController < ApplicationController
 	end
 
 	def show
-		@book = Book.find( params[:book_id] )
-		@pages = @book.pages.all
+		create_params
 	end
 
 	def create
@@ -26,5 +26,10 @@ class PagesController < ApplicationController
 	private
 	def pages_params
 		params.require(:page).permit(:chapter, :number, :book_id)
+	end
+
+	def create_params
+		@book = Book.find( params[:book_id] )
+		@pages = @book.pages.all
 	end
 end
